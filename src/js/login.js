@@ -1,7 +1,7 @@
 "use strict"
 
 const errorDiv = document.getElementById('error');
-const url = 'https://emad2301-backend-moment4.onrender.com'
+const url = 'https://emad2301-backend-moment4.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('loginForm');
