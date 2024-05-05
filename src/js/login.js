@@ -22,6 +22,7 @@ async function loginUser() {
     }
 
     try {
+        // Send login prefernces to API
         const response = await fetch(url + '/api/login', {
             method: 'POST',
             headers: {
@@ -32,11 +33,14 @@ async function loginUser() {
 
         const data = await response.json();
 
-        console.log(data);
+        if(response.ok) {
+            // Get token from answer
+            const token = data.response.token;
+        } 
         
     } catch (error) {
         console.log(error);
         
     }
-
+    
 }
