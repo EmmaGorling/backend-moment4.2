@@ -38,6 +38,7 @@ async function loginUser() {
                 // Get token from answer
                 const token = data.response.token;
                 localStorage.setItem('token', token);
+                window.location.href = 'mypage.html';
             } else {
                 document.getElementById('message').innerHTML = 'Fel email eller lösenord'
             }
