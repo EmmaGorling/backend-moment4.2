@@ -21,26 +21,32 @@ async function loginUser() {
         password: password
     }
 
-    try {
-        // Send login prefernces to API
-        const response = await fetch(url + '/api/login', {
-            method: 'POST',
-            headers: {
-                "content-type": "Application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    if(email.length > 0 && password.length > 0) {
+        try {
+            // Send login prefernces to API
+            const response = await fetch(url + '/api/login', {
+                method: 'POST',
+                headers: {
+                    "content-type": "Application/json"
+                },
+                body: JSON.stringify(user)
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if(response.ok) {
-            // Get token from answer
-            const token = data.response.token;
-        } 
-        
-    } catch (error) {
-        console.log(error);
-        
+            if(response.ok) {
+                // Get token from answer
+                const token = data.response.token;
+                localStorage.setItem('token', token);
+            } else {
+                document.getElementById('message').innerHTML = 'Fel email eller lösenord'
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+        document.getElementById('message').innerHTML = 'Vänligen fyll i email och lösenord'
     }
     
 }
