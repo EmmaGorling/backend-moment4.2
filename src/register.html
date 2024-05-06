@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
     <script type="module" src="js/register.js" defer></script>
+    <link rel="stylesheet" href="./css/main.scss">
 </head>
 <body>
     <header>
@@ -22,22 +23,26 @@
         <form action="" id="registerForm">
             <h2>Skapa användare</h2>
             <label for="emil">Email:</label>
+            <br>
             <input type="email" name="email" id="email">
             <br>
             <label for="password">Lösenord:</label>
+            <br>
             <input type="password" name="password" id="password">
             <br>
             <label for="firstname">Förnamn:</label>
+            <br>
             <input type="text" name="firstname" id="firstname">
             <br>
             <label for="lastname">Efternamn:</label>
+            <br>
             <input type="text" name="lastname" id="lastname">
 
             <p id="error"></p>
 
             <p>Har du redan ett konto? Logga in <a href="index.html">här</a>.</p>
 
-            <button type="submit" id="login">Skapa användare</button>
+            <button type="submit" id="submit">Skapa användare</button>
         </form>
         <div id="message">
             

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logga in</title>
     <script type="module" src="js/login.js" defer></script>
+    <link rel="stylesheet" href="./css/main.scss">
 </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Startsida</a></li>
-                <li><a href="login.html">Logga in</a></li>
+                <li><a href="login.html" class="active">Logga in</a></li>
                 <li><a href="mypage.html">Min sida</a></li>
             </ul>
         </nav>
@@ -22,9 +23,11 @@
         <form action="" id="loginForm">
             <h2>Logga in</h2>
             <label for="emil">Email:</label>
+            <br>
             <input type="email" name="email" id="email">
             <br>
             <label for="password">Lösenord:</label>
+            <br>
             <input type="password" name="password" id="password">
 
             <div id="message">
@@ -33,7 +36,7 @@
 
             <p>Har du inte ett konto? Registrera dig <a href="register.html">här</a>.</p>
 
-            <button type="submit" id="login">Logga in</button>
+            <button type="submit" id="submit">Logga in</button>
         </form>
     </main>
     <footer>
