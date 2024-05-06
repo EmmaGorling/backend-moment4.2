@@ -40,6 +40,9 @@ main {
             border-radius: 3px;
             margin: 1em auto;
         }
+        #submit:hover {
+            cursor: pointer;
+        }
         input {
             border: 2px solid $dark-orange;
             border-radius: 3px;

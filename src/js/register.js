@@ -11,19 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function registerUser() {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const firstname = document.getElementById('firstname');
-    const lastname = document.getElementById('lastname');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const firstnameInput = document.getElementById('firstname');
+    const lastnameInput = document.getElementById('lastname');
+
+    // Remove tags if there are any
+    const email = emailInput.value.replace(/(<([^>]+)>)/ig, '');
+    const password = passwordInput.value.replace(/(<([^>]+)>)/ig, '');
+    const firstname = firstnameInput.value.replace(/(<([^>]+)>)/ig, '');
+    const lastname = lastnameInput.value.replace(/(<([^>]+)>)/ig, '');
 
     const user = {
-        email: email.value,
-        password: password.value,
-        firstname: firstname.value,
-        lastname: lastname.value
+        email: email,
+        password: password,
+        firstname: firstname,
+        lastname: lastname
     }
 
-    if( email.value.length > 0 && password.value.length > 0 && firstname.value.length > 0 && lastname.value.length > 0) {
+    if( email.length > 0 && password.length > 0 && firstname.length > 0 && lastname.length > 0) {
         try {
             // Send register prefences to API
             const response = await fetch(url + '/api/register', {
@@ -38,14 +44,14 @@ async function registerUser() {
 
             if(response.ok) {
                 document.getElementById('message').innerHTML = 'Användare skapad!';
-                email.value = '';
-                password.value = '';
-                firstname.value = '';
-                lastname.value = '';
-            } else {
-                document.getElementById('message').innerHTML = 'Det verkar som att något gick fel...';
+                emailInput.value = '';
+                passwordInput.value = '';
+                firstnameInput.value = '';
+                lastnameInput.value = '';
             }
+            console.log(response + data);
         } catch (error) {
+            console.log(error);
             document.getElementById('message').innerHTML = 'Det verkar som att något gick fel...';
         }
     } else {

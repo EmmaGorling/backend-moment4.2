@@ -25,7 +25,10 @@ async function contactApi() {
         });
         const data = await response.json();
 
-        document.getElementById('message').innerHTML = data.message;
+        document.getElementById('message').innerHTML = `
+            <p>${data.message}
+            <br>
+            Du är inloggad som: ${data.userEmail}</p>`;
     } catch (error) {
         console.log(error);
     }
